@@ -2,7 +2,7 @@ const { DataTypes, STRING } = require("sequelize");
 const sequelize = require("./db");
 // Defind thr restaurant model
 
-const Book = sequelize.define("books", {
+const Book = sequelize.define("book", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

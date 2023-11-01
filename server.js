@@ -2,7 +2,7 @@ const express = require("express");
 const sql = require("./model/db");
 const cors = require("cors");
 const LibraryRouter = require("./router/Book.router");
-const PORT = 5200;
+const PORT = 5000;
 
 // การประเรียกใช้service ของ express
 const app = express();
