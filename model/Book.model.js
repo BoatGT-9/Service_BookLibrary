@@ -1,4 +1,4 @@
-const { DataTypes, STRING } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("./db");
 // Defind thr restaurant model
 
@@ -8,19 +8,23 @@ const Book = sequelize.define("book", {
     primaryKey: true,
     autoIncrement: true,
   },
-  Name: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  Type: {
+  type: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  Title: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  Publisher: {
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  publisher: {
     type: DataTypes.STRING,
     allowNull: false,
   },
