@@ -3,9 +3,34 @@ const sql = require("./model/db");
 const cors = require("cors");
 const LibraryRouter = require("./router/Book.router");
 const PORT = 5000;
-
+const notFoundmiddelware = require("./middleware/not-fonud")
 // การประเรียกใช้service ของ express
 const app = express();
+const db = require("./model/index")
+const role = db.role
+
+
+//devmode
+// db.sequelize.sync({force:true}).then(()=>{
+//     console.log('Drop and resync DB');
+//     initial();
+// })
+
+
+function initial(){
+  role.create({
+      id:1,
+      name:'user',
+  })
+  role.create({
+      id:2,
+      name:'moderator',
+  })
+  role.create({
+      id:3,
+      name:'admin',
+  })
+}
 
 app.use(cors());
 app.use(express.json());
@@ -18,6 +43,8 @@ app.get("/", (req, res,next) => {
 });
 
  app.use("/book", LibraryRouter);
+ app.use(notFoundmiddelware);
+
 app.listen(PORT, () => {
   console.log("เซอร์เวอร์ต่ออยู่ที่ http://localhost:" + PORT);
   

@@ -39,5 +39,11 @@ const Book = sequelize.define("book", {
     defaultValue: DataTypes.NOW,
   },
 });
+// Book.sync({force:false})
+// .then(()=>{
+//     console.log("Table created or already exists");
+// }).catch((error)=>{
+//     console.log("error creating table:", error);
+// })
 
 module.exports = Book;
